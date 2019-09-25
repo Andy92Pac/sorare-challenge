@@ -1,10 +1,9 @@
 var crypto = require('crypto');
 
 function MerkleTree (strArray) {
-	this[0] = strArray;
 	var leavesHash = strArray.map(s => getHash(s));
 
-	computeLevel(this, leavesHash, 1);
+	computeLevel(this, leavesHash, 0);
 }
 
 MerkleTree.prototype.root = function() {
@@ -51,7 +50,7 @@ computeLevel = function (merkleObj, hashArray, level) {
 	else {
 		merkleObj[level+1] = [parentsHashArray[0]];
 		merkleObj['rootHash'] = parentsHashArray[0];
-		merkleObj['treeHeight'] = level+2
+		merkleObj['treeHeight'] = level+1
 		return;
 	}
 }

@@ -23,7 +23,7 @@ describe('merkle test', () => {
 	it('should have the correct height', () => {
 		var merkleTree = merkle.createMerkleTree(['L1', 'L2', 'L3', 'L4', 'L5']);
 
-		assert.equal(5, merkleTree.height());
+		assert.equal(4, merkleTree.height());
 	});
 
 	it('should give the correct level of hash', () => {
